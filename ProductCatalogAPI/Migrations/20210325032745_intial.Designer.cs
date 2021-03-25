@@ -9,8 +9,8 @@ using ProductCatalogAPI.Data;
 namespace ProductCatalogAPI.Migrations
 {
     [DbContext(typeof(CatalogContext))]
-    [Migration("20210325004234_initial")]
-    partial class initial
+    [Migration("20210325032745_intial")]
+    partial class intial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,7 +34,7 @@ namespace ProductCatalogAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("catalogBrands");
+                    b.ToTable("CatalogBrands");
                 });
 
             modelBuilder.Entity("ProductCatalogAPI.Domain.CatalogItem", b =>
@@ -77,7 +77,7 @@ namespace ProductCatalogAPI.Migrations
 
                     b.HasIndex("TypeId");
 
-                    b.ToTable("catalogItems");
+                    b.ToTable("CatalogItems");
                 });
 
             modelBuilder.Entity("ProductCatalogAPI.Domain.CatalogSize", b =>
@@ -92,7 +92,7 @@ namespace ProductCatalogAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("catalogSizes");
+                    b.ToTable("CatalogSizes");
                 });
 
             modelBuilder.Entity("ProductCatalogAPI.Domain.CatalogType", b =>
@@ -109,7 +109,7 @@ namespace ProductCatalogAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("catalogTypes");
+                    b.ToTable("CatalogTypes");
                 });
 
             modelBuilder.Entity("ProductCatalogAPI.Domain.CatalogItem", b =>

@@ -14,33 +14,31 @@ namespace ProductCatalogAPI.Data
         {
             catalogContext.Database.Migrate();
 
-            if (!catalogContext.catalogBrands.Any())
+            if (!catalogContext.CatalogBrands.Any())
             {
-                catalogContext.catalogBrands.AddRange(GetCatalogBrand());
+                catalogContext.CatalogBrands.AddRange(GetCatalogBrand());
                 catalogContext.SaveChanges();
             }
           
-            if (!catalogContext.catalogSizes.Any())
+            if (!catalogContext.CatalogSizes.Any())
             {
-                catalogContext.catalogSizes.AddRange(GetCatalogSize());
+                catalogContext.CatalogSizes.AddRange(GetCatalogSize());
                 catalogContext.SaveChanges();
             }
-            if (!catalogContext.catalogTypes.Any())
+            if (!catalogContext.CatalogTypes.Any())
             {
-                catalogContext.catalogTypes.AddRange(GetCatalogType());
+                catalogContext.CatalogTypes.AddRange(GetCatalogType());
                 catalogContext.SaveChanges();
             }
-            if (!catalogContext.catalogItems.Any())
+            if (!catalogContext.CatalogItems.Any())
             {
-                catalogContext.catalogItems.AddRange(GetCatalogItem());
+                catalogContext.CatalogItems.AddRange(GetCatalogItem());
                 catalogContext.SaveChanges();
             }
         }
 
-        internal static void seed()
-        {
-            throw new NotImplementedException();
-        }
+      
+       
 
         private static IEnumerable< CatalogItem> GetCatalogItem()
         {

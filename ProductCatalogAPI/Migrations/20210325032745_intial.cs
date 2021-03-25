@@ -2,12 +2,12 @@
 
 namespace ProductCatalogAPI.Migrations
 {
-    public partial class initial : Migration
+    public partial class intial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "catalogBrands",
+                name: "CatalogBrands",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -16,11 +16,11 @@ namespace ProductCatalogAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_catalogBrands", x => x.Id);
+                    table.PrimaryKey("PK_CatalogBrands", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "catalogSizes",
+                name: "CatalogSizes",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -29,11 +29,11 @@ namespace ProductCatalogAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_catalogSizes", x => x.Id);
+                    table.PrimaryKey("PK_CatalogSizes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "catalogTypes",
+                name: "CatalogTypes",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -42,11 +42,11 @@ namespace ProductCatalogAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_catalogTypes", x => x.Id);
+                    table.PrimaryKey("PK_CatalogTypes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "catalogItems",
+                name: "CatalogItems",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -61,56 +61,56 @@ namespace ProductCatalogAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_catalogItems", x => x.Id);
+                    table.PrimaryKey("PK_CatalogItems", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_catalogItems_catalogBrands_BrandId",
+                        name: "FK_CatalogItems_CatalogBrands_BrandId",
                         column: x => x.BrandId,
-                        principalTable: "catalogBrands",
+                        principalTable: "CatalogBrands",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_catalogItems_catalogSizes_SizeId",
+                        name: "FK_CatalogItems_CatalogSizes_SizeId",
                         column: x => x.SizeId,
-                        principalTable: "catalogSizes",
+                        principalTable: "CatalogSizes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_catalogItems_catalogTypes_TypeId",
+                        name: "FK_CatalogItems_CatalogTypes_TypeId",
                         column: x => x.TypeId,
-                        principalTable: "catalogTypes",
+                        principalTable: "CatalogTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_catalogItems_BrandId",
-                table: "catalogItems",
+                name: "IX_CatalogItems_BrandId",
+                table: "CatalogItems",
                 column: "BrandId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_catalogItems_SizeId",
-                table: "catalogItems",
+                name: "IX_CatalogItems_SizeId",
+                table: "CatalogItems",
                 column: "SizeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_catalogItems_TypeId",
-                table: "catalogItems",
+                name: "IX_CatalogItems_TypeId",
+                table: "CatalogItems",
                 column: "TypeId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "catalogItems");
+                name: "CatalogItems");
 
             migrationBuilder.DropTable(
-                name: "catalogBrands");
+                name: "CatalogBrands");
 
             migrationBuilder.DropTable(
-                name: "catalogSizes");
+                name: "CatalogSizes");
 
             migrationBuilder.DropTable(
-                name: "catalogTypes");
+                name: "CatalogTypes");
         }
     }
 }

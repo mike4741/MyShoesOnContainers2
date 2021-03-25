@@ -14,10 +14,10 @@ namespace ProductCatalogAPI.Data
                 
         }
 
-        public DbSet <CatalogSize>  catalogSizes   { get; set; }
-        public DbSet<CatalogItem>  catalogItems   { get; set; }
-        public DbSet< CatalogType> catalogTypes { get; set; }
-        public DbSet<CatalogBrand> catalogBrands { get; set; } 
+        public DbSet <CatalogSize>  CatalogSizes   { get; set; }
+        public DbSet<CatalogItem>  CatalogItems   { get; set; }
+        public DbSet< CatalogType> CatalogTypes { get; set; }
+        public DbSet<CatalogBrand> CatalogBrands { get; set; } 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<CatalogBrand>(b =>
@@ -58,7 +58,8 @@ namespace ProductCatalogAPI.Data
                 .HasMaxLength(100);
                 t.Property(t => t.Description);
                 t.Property(t => t.Price)
-                .IsRequired();
+                .IsRequired()
+                .GetType();
                 t.Property(t => t.PictureUrl)
                 .IsRequired()
                 .HasMaxLength(100);
